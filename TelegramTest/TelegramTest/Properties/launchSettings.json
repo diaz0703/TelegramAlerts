@@ -3,10 +3,6 @@
     "TelegramTest": {
       "commandName": "Project",
       "commandLineArgs": "--port 7238",
-      "environmentVariables": {
-        "token": "8534265746:AAGEezRtdpBEY1HjiK6V1U3gpKdPgc-00ho",
-        "sqlconexion": "server=LAPTOP-HS0DAI20;database=LogicPir;uid=sa;pwd=*123456*;Trusted_Connection=yes;TrustServerCertificate=True;"
-      }
     }
   }
 }

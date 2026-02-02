@@ -41,7 +41,7 @@ namespace TelegramTest
             List<TelegramBeneficiarios> _benef = _sqlserv.SelectBeneficiarios();
             foreach (TelegramBeneficiarios _item in _benef)
             {
-                await _botClient.SendMessage(_item.TelegramId, alerta.Data.Essentials.AlertRule);
+                await _botClient.SendMessage(_item.TelegramId, _mensaje);
                 TelegramMensajes _men = new TelegramMensajes()
                 {
                     AlertaFilaId = alertaid,
