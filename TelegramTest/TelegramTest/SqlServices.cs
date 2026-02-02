@@ -77,21 +77,30 @@ namespace TelegramTest
                 }
             }
         }
-        public int GuardaAlertaDisparada(TelegramAlertas obj)
+        public int GuardaAlertaDisparada(TelegramAlertas obj , string body)
         {
-            string Consulta = "INSERT INTO [TelegramAlertas]   ([TipoAlerta]  ,[Alerta])  VALUES (@TipoAlerta ,@Alerta) ; select @@identity; ";
+            string Consulta = "INSERT INTO [TelegramAlertas]   ([TipoAlerta]  ,[Alerta], ALERTAVIVA, AzureAlertaId)  VALUES (@TipoAlerta ,@Alerta, @AlertaViva, @AzureAlertaId) ; select @@identity; ";
+            string ConsultaUp = "UPDATE [TelegramAlertas]   SET  [AlertaRes] = @Alerta  , FechaResuelve = @FechaResuelve ,  alertaviva = @AlertaViva where AzureAlertaId  = @AzureAlertaId  ; select 1; ";
+            string _consultaFinal = Consulta;
+            DateTime _fechainserta = DateTime.Now;
+            if (obj.AlertaViva == 9)
+            {
+                _consultaFinal = ConsultaUp;
+            }
             int _res  = 0;
             using (SqlConnection connection = new SqlConnection(Config._sqlconexion))
             {
-
                 try
                 {
                     connection.Open();
                     _logger.LogInformation("Conexión exitosa a SQL Server.");
-                    using (SqlCommand command = new SqlCommand(Consulta, connection))
+                    using (SqlCommand command = new SqlCommand(_consultaFinal, connection))
                     {
                         command.Parameters.AddWithValue("@TipoAlerta", obj.TipoAlerta.ToString());
-                        command.Parameters.AddWithValue("@Alerta", obj.Alerta.ToString());
+                        command.Parameters.AddWithValue("@AzureAlertaId", obj.AzureAlertaId);
+                        command.Parameters.AddWithValue("@Alerta", body);
+                        command.Parameters.AddWithValue("@AlertaViva", obj.AlertaViva.ToString());
+                        command.Parameters.AddWithValue("@FechaResuelve", _fechainserta.ToString("yyyy/MM/dd HH:mm:ss"));
                         _res = Convert.ToInt32(command.ExecuteScalarAsync().Result);
                     }
                 }

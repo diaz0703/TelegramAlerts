@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "ConsolaToken": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ENTRA_CLIENT_SECRET": "uVN8Q~6Amb9sO115L3qtKd3Z_TwRNItwSyiR3a9T",
+        "ENTRA_CLIENT_ID": "bbed0ecb-92c6-4ef5-885f-e7a36cf04505",
+        "ENTRA_TENANT_ID": "ce132b0c-fc3a-4e67-a892-6b29d1a077cd"
+      }
+    }
+  }
+}

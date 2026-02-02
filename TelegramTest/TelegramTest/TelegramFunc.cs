@@ -39,14 +39,14 @@ namespace TelegramTest
                 var _alerta = JsonSerializer.Deserialize<Alerta>(body, JsonBotAPI.Options);
                 if (_alerta is null)
                 {
-                    _logger.LogWarning("No se pudo deserializar el objeto.");
+                    log.LogWarning($"No se pudo deserializar el objeto. {body}");
                     return new OkResult();
                 }
-                await _updateService.TratarMsgTelegram(_alerta);
+                await _updateService.TratarMsgTelegram(_alerta, body);
             }
             catch (Exception e)
             {
-                _logger.LogError("Exception: " + e.Message);
+                log.LogError("Exception: " + e.Message);
             }
             return new OkResult();
         }

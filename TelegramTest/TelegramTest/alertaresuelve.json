@@ -8,13 +8,14 @@
       "alertRuleID": "/subscriptions/1bcebb0b-282c-4be6-b65f-693b8bb02864/resourceGroups/pirresources/providers/microsoft.insights/metricAlerts/error anuales",
       "severity": "Sev3",
       "signalType": "Metric",
-      "monitorCondition": "Fired",
+      "monitorCondition": "Resolved",
       "targetResourceGroup": "pirresources",
       "monitoringService": "Platform",
       "alertTargetIDs": [ "/subscriptions/1bcebb0b-282c-4be6-b65f-693b8bb02864/resourcegroups/pirresources/providers/microsoft.compute/virtualmachines/pirtest" ],
       "configurationItems": [ "pirtest" ],
       "originAlertId": "1bcebb0b-282c-4be6-b65f-693b8bb02864_pirresources_microsoft.insights_metricAlerts_error anuales_-2002477128",
       "firedDateTime": "2026-02-02T06:02:21.6260615Z",
+      "resolvedDateTime": "2026-02-02T06:20:23.1999042Z",
       "description": "",
       "essentialsVersion": "1.0",
       "alertContextVersion": "1.0",
@@ -33,7 +34,7 @@
             "threshold": "60",
             "timeAggregation": "Average",
             "dimensions": [],
-            "metricValue": 67.585,
+            "metricValue": 37.265,
             "webTestName": null
           }
         ],
@@ -41,8 +42,8 @@
           "numberOfEvaluationPeriods": 0,
           "minFailingPeriodsToAlert": 0
         },
-        "windowStartTime": "2026-02-02T05:54:12.775Z",
-        "windowEndTime": "2026-02-02T05:59:12.775Z"
+        "windowStartTime": "2026-02-02T06:12:12.936Z",
+        "windowEndTime": "2026-02-02T06:17:12.936Z"
       }
     },
     "customProperties": null

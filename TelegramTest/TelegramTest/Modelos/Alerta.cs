@@ -64,7 +64,14 @@ namespace TelegramTest.Modelos
         public string OriginAlertId { get; set; }
 
         [JsonPropertyName("firedDateTime")]
+  //      public string FiredDateTime { get; set; }
         public DateTime FiredDateTime { get; set; }
+
+
+        [JsonPropertyName("resolvedDateTime")]
+        //      public string FiredDateTime { get; set; }
+        public DateTime ResolvedDateTime { get; set; }
+
 
         [JsonPropertyName("description")]
         public string Description { get; set; }
@@ -103,9 +110,11 @@ namespace TelegramTest.Modelos
         public StaticThresholdFailingPeriods StaticThresholdFailingPeriods { get; set; }
 
         [JsonPropertyName("windowStartTime")]
+//        public string WindowStartTime { get; set; }
         public DateTime WindowStartTime { get; set; }
 
         [JsonPropertyName("windowEndTime")]
+//        public string WindowEndTime { get; set; }
         public DateTime WindowEndTime { get; set; }
     }
 

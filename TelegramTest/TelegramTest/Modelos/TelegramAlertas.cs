@@ -10,6 +10,10 @@ namespace TelegramTest.Modelos
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AlertaFilaId { get; set; }
+        public string AzureAlertaId { get; set; }
+        public int AlertaViva { get; set; }
+        public DateTime FechaAlertaFire { get; set; }
+        public DateTime FechaAlertaSolve { get; set; }
 
         // varchar(3000) NULL
         [Column(TypeName = "varchar(3000)")]

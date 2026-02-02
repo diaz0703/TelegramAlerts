@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="ConsolaToken/ConsolaToken.csproj" Id="a0f1ff9d-eaa5-4b9f-8d52-7fd3863a3bbd" />
+  <Project Path="pmiapisec/pmiapisec.csproj" Id="06a9efd3-72b9-46eb-aa31-1fb7dd39f431" />
   <Project Path="TelegramTest/TelegramTest.csproj" />
 </Solution>
