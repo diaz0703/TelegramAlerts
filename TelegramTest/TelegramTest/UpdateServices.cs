@@ -75,7 +75,7 @@ namespace TelegramTest
             { 
                 _alert.FechaAlertaSolve = alerta.Data.Essentials.ResolvedDateTime;
             }
-            int _res = _sqlserv.GuardaAlertaDisparada(_alert, body);
+            int _res = _sqlserv.GuardaAlertaDisparada(_alert, body, alerta);
             _logger.LogInformation("Se guardó la alerta en la bd", "");
 
             await EnviaMsgTelegram(alerta, _res, _alert.AlertaViva);

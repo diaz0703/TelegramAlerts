@@ -77,9 +77,9 @@ namespace TelegramTest
                 }
             }
         }
-        public int GuardaAlertaDisparada(TelegramAlertas obj , string body)
+        public int GuardaAlertaDisparada(TelegramAlertas obj , string body, Alerta alerta)
         {
-            string Consulta = "INSERT INTO [TelegramAlertas]   ([TipoAlerta]  ,[Alerta], ALERTAVIVA, AzureAlertaId)  VALUES (@TipoAlerta ,@Alerta, @AlertaViva, @AzureAlertaId) ; select @@identity; ";
+            string Consulta = "INSERT INTO [TelegramAlertas]   ([TipoAlerta]  ,[Alerta], ALERTAVIVA, AzureAlertaId, origenid, subscripcion, elemento)  VALUES (@TipoAlerta ,@Alerta, @AlertaViva, @AzureAlertaId, @origenid, @subscripcion, @elemento) ; select @@identity; ";
             string ConsultaUp = "UPDATE [TelegramAlertas]   SET  [AlertaRes] = @Alerta  , FechaResuelve = @FechaResuelve ,  alertaviva = @AlertaViva where AzureAlertaId  = @AzureAlertaId  ; select 1; ";
             string _consultaFinal = Consulta;
             DateTime _fechainserta = DateTime.Now;
@@ -101,6 +101,9 @@ namespace TelegramTest
                         command.Parameters.AddWithValue("@Alerta", body);
                         command.Parameters.AddWithValue("@AlertaViva", obj.AlertaViva.ToString());
                         command.Parameters.AddWithValue("@FechaResuelve", _fechainserta.ToString("yyyy/MM/dd HH:mm:ss"));
+                        command.Parameters.AddWithValue("@origenid", alerta.Data.Essentials.TargetId);
+                        command.Parameters.AddWithValue("@subscripcion", alerta.Data.Essentials.SubscriptionId);
+                        command.Parameters.AddWithValue("@elemento", alerta.Data.Essentials.ElementoId);
                         _res = Convert.ToInt32(command.ExecuteScalarAsync().Result);
                     }
                 }

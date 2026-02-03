@@ -57,6 +57,37 @@ namespace TelegramTest.Modelos
         [JsonPropertyName("alertTargetIDs")]
         public List<string> AlertTargetIDs { get; set; }
 
+        public string TargetId { get {
+                string _res = "";
+                if (AlertTargetIDs != null && AlertTargetIDs.Count > 0)
+                    _res = AlertTargetIDs[0];
+                return _res;
+            } set { } }
+
+        public string SubscriptionId
+        {
+            get
+            {
+                string _res = "";
+                string[] parts = TargetId.Split('/');
+                if (parts.Length > 2)
+                    _res = parts[2];
+                return _res;
+            }
+            set { }
+        }
+        public string ElementoId
+        {
+            get
+            {
+                string _res = "";
+                string[] parts = TargetId.Split('/');
+                if (parts.Length > 0)   
+                    _res = parts[parts.Length-1];
+                return _res;
+            }
+            set { }
+        }
         [JsonPropertyName("configurationItems")]
         public List<string> ConfigurationItems { get; set; }
 
